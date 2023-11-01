@@ -1,0 +1,161 @@
+@media screen and (max-width: 768px) {
+  #btnContactUs {
+    margin: 0 auto;
+  }
+}
+#btnContactUs {
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .form-group {
+    padding: 0 10px;
+  }
+}
+.form-group {
+  margin-bottom: 30px;
+  clear: both;
+  overflow: hidden;
+}
+.form-layout {
+  clear: both;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: 70px;
+  padding: 14px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s,
+    box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.label {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+.label-required {
+  border: 2px solid #f4564e;
+  color: #f4564e;
+  margin-right: 0.5em;
+  border-radius: 2px;
+  margin-bottom: 0.5em;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+.label-premium {
+  border: 2px solid #bfbfbf;
+  color: #bfbfbf;
+  margin-right: 0.5em;
+  border-radius: 2px;
+  margin-bottom: 0.5em;
+}
+textarea.form-control {
+  height: auto;
+}
+textarea {
+  overflow: auto;
+}
+a.link_txt {
+  font-size: 1.2em;
+  border-bottom: 1px solid #ef8200;
+  color: #ef8200;
+}
+a.form:hover,
+a.form:focus {
+  color: #2ba99a;
+  text-decoration: underline;
+}
+a.form:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+a.form:hover,
+a.form:active,
+a.form:focus {
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+}
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger {
+  border-color: transparent;
+}
+.btn-primary {
+  background: #ef8200;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #ef8200;
+  border-color: #3bcdbb;
+}
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 14px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.form-control {
+  box-shadow: none !important;
+  border: 2px solid #e2e2e2;
+  background: transparent;
+  font-family: "新丸ゴ DB", arial, sans-serif;
+}
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
