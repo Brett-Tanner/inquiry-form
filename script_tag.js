@@ -16,7 +16,7 @@ inquiryForm.addEventListener("submit", function showSummary(e) {
   e.preventDefault();
   const data = new FormData(e.target);
   const inquiryObject = Object.fromEntries(data);
-  document.removeEventListener("submit", showSummary);
+  inquiryForm.removeEventListener("submit", showSummary);
   createSummary(inquiryObject);
 });
 
@@ -29,12 +29,8 @@ function createSummary(inquiry) {
       inquiryForm.appendChild(createSummaryField(pair));
     });
   inquiryForm.appendChild(createButtonContainer(inquiry));
-  inquiryForm.style.display = "flex";
-  inquiryForm.style.flexDirection = "row";
-  inquiryForm.style.flexWrap = "wrap";
-  inquiryForm.style.justifyContent = "center";
-  inquiryForm.style.alignItems = "center";
-  inquiryForm.style.gap = "0.5rem";
+  addSummaryStyles();
+  window.location.replace("#pagetop", "");
 }
 
 function createSummaryHeadings() {
@@ -105,6 +101,15 @@ function createSubmitButton(inquiry) {
     }
   });
   return button;
+}
+
+function addSummaryStyles() {
+  inquiryForm.style.display = "flex";
+  inquiryForm.style.flexDirection = "row";
+  inquiryForm.style.flexWrap = "wrap";
+  inquiryForm.style.justifyContent = "center";
+  inquiryForm.style.alignItems = "center";
+  inquiryForm.style.gap = "0.5rem";
 }
 
 async function sendInquiry(inquiry) {
