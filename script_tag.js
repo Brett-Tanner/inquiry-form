@@ -102,16 +102,23 @@ function createSubmitButton(inquiry) {
   button.type = "submit";
   button.innerText = "送信する";
   button.classList.add("btn", "btn-primary", "btn-md");
-  button.addEventListener("click", (e) => {
+  button.addEventListener("click", async (e) => {
     e.preventDefault();
-    response = sendInquiry(inquiry);
+    response = await sendInquiry(inquiry);
     if (response.status === 200) {
       document.location = "https://kids-up.jp/inquiry/complete/";
     } else {
-      // TODO: show an error
+      inquiryForm.innerHTML = "";
+      inquiryForm.appendChild(createErrorMessage());
     }
   });
   return button;
+}
+
+function createErrorMessage() {
+  const message = document.createElement("h1");
+  message.innerText = "お問い合わせは送信できませんでした。";
+  return message;
 }
 
 function addSummaryStyles() {
@@ -128,7 +135,7 @@ async function sendInquiry(inquiry) {
     "Content-Type": "application/json",
   });
 
-  const response = await fetch("https://kids-up.app/create_inquiry", {
+  const response = await fetch("https://kids-up.app/create_inquiry.json", {
     method: "POST",
     headers: headers,
     body: JSON.stringify({ inquiry: inquiry }),
