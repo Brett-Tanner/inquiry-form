@@ -4,7 +4,7 @@
   accept-charset="UTF-8"
   id="formContactUs"
 >
-  <input type="hidden" name="category" value="I" />
+  <input type="hidden" name="category" id="category" value="I" />
 
   <div class="row">
     <div class="form-group">
@@ -14,7 +14,12 @@
       </label>
 
       <div class="form-layout">
-        <select class="form-control" required="required" name="school_id">
+        <select
+          class="form-control"
+          required="required"
+          name="school_id"
+          id="school_id"
+        >
           <optgroup label="">
             <option value="" selected="selected">選択してください</option>
           </optgroup>

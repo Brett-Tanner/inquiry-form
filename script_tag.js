@@ -80,7 +80,18 @@ function createBackButton(inquiry) {
   button.addEventListener("click", function showForm(e) {
     e.preventDefault();
     inquiryForm.innerHTML = originalForm;
-    // Then fill in the fields by iterating over inquiry
+    Object.entries(inquiry).forEach((pair) => {
+      const input = document.getElementById(pair[0]);
+      if (input.type === "select") {
+        const optGroups = input.children;
+        [...optGroups].forEach((group) => {
+          const selected = group.find((o) => o.value === pair[1]);
+          if (selected) selected.selected = pair[1];
+        });
+      } else {
+        input.value = pair[1];
+      }
+    });
   });
   return button;
 }
@@ -120,7 +131,7 @@ async function sendInquiry(inquiry) {
   const response = await fetch("https://kids-up.app/create_inquiry", {
     method: "POST",
     headers: headers,
-    body: JSON.stringify({ inquiry: inquiryObject }),
+    body: JSON.stringify({ inquiry: inquiry }),
   });
   return response;
 }
