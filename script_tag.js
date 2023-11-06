@@ -50,11 +50,15 @@ const SCHOOL_NAME_HASH = {
 
 inquiryForm.addEventListener("submit", function showSummary(e) {
   e.preventDefault();
+  inquiryForm.removeEventListener("submit", showSummary);
+  getFormData(e);
+});
+
+function getFormData(e) {
   const data = new FormData(e.target);
   const inquiryObject = Object.fromEntries(data);
-  inquiryForm.removeEventListener("submit", showSummary);
   createSummary(inquiryObject);
-});
+}
 
 function createSummary(inquiry) {
   inquiryForm.innerHTML = "";
@@ -127,6 +131,11 @@ function createBackButton(inquiry) {
       } else {
         input.value = pair[1];
       }
+    });
+    inquiryForm.addEventListener("submit", function showSummary(e) {
+      e.preventDefault();
+      inquiryForm.removeEventListener("submit", showSummary);
+      getFormData(e);
     });
   });
   return button;
