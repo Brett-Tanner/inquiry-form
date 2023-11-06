@@ -11,6 +11,42 @@ const LABEL_TRANSLATIONS = {
   ele_school: "小学校名と在学状況 ",
   requests: "本文",
 };
+const SCHOOL_NAME_HASH = {
+  3: "KidsUP田園調布雪谷校",
+  4: "KidsUP蒲田駅前校",
+  5: "KidsUP池上校",
+  6: "KidsUP東陽町校",
+  7: "KidsUP長原校",
+  8: "KidsUP門前仲町校",
+  9: "KidsUP戸越校",
+  10: "KidsUP成城校",
+  11: "KidsUP大森校",
+  12: "KidsUP早稲田校",
+  13: "KidsUPりんかい東雲校",
+  14: "KidsUP新川崎校",
+  15: "KidsUP等々力校",
+  16: "KidsUP大島校",
+  17: "KidsUP三鷹校",
+  18: "KidsUP二俣川校",
+  19: "KidsUP新浦安校",
+  20: "KidsUP天王町校",
+  21: "KidsUP南町田グランベリーパーク校",
+  22: "KidsUP大井校",
+  23: "KidsUP晴海校",
+  24: "KidsUP四谷校",
+  25: "KidsUP赤羽校",
+  26: "KidsUP北品川校",
+  27: "KidsUP溝の口校",
+  28: "KidsUP矢向校",
+  29: "KidsUPソコラ南行徳校",
+  30: "KidsUP鷺宮校",
+  31: "KidsUP馬込校",
+  32: "KidsUP大倉山校",
+  33: "KidsUP武蔵新城校",
+  34: "KidsUP武蔵小杉校",
+  35: "KidsUP川口校",
+  36: "KidsUP池袋校",
+};
 
 inquiryForm.addEventListener("submit", function showSummary(e) {
   e.preventDefault();
@@ -53,7 +89,7 @@ function createSummaryField(pair) {
   label.innerText = LABEL_TRANSLATIONS[pair[0]];
 
   const value = document.createElement("p");
-  value.innerText = pair[1];
+  value.innerText = SCHOOL_NAME_HASH[pair[1]] || pair[1];
 
   fieldContainer.append(label, value);
   fieldContainer.style.width = "20%";
