@@ -16,6 +16,7 @@
 	align-items: center;
 	gap: 1.25rem 0;
 	padding: 0.75rem 0;
+	color: var(--ku-secondary);
 	@media (max-width: 992px) {
 		flex-flow: column nowrap;
 	}
@@ -33,10 +34,9 @@
 	flex-flow: column nowrap;
 	gap: 0.5rem;
 	flex-basis: 45%;
-}
-
-.fieldset-border {
-	border: 2px dashed var(--ku-faded) !important;
+	@media (max-width: 992px) {
+		width: 90%;
+	}
 }
 
 .label-text {
@@ -91,15 +91,19 @@
 	box-shadow: var(--shadow-input-orange);
 }
 
+#requests {
+	width: 90%;
+}
+
 p.notes {
-	width: 100%;
+	width: 90%;
 	font-weight: 600;
 	color: var(--ku-secondary);
 	text-align: center;
 }
 
 #btnContactUs {
-	width: 90%;	
+	width: 95%;	
 	padding: 0.25rem;
 	border-radius: 0.25rem;
 	background: var(--ku-orange);
@@ -110,5 +114,26 @@ p.notes {
 	border: none;
 	&:hover {
 		opacity: 90%;
+	}
+}
+
+.summary-heading {
+	width: 100%;
+	text-align: center;
+}
+
+#btnBack {
+	border: 1px solid var(--ku-secondary);
+	border-radius: 0.25rem;
+	color: var(--ku-secondary);
+	background: transparent;
+	width: 95%;
+	padding: 0.25rem;
+	font-weight: 600;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	&:hover {
+		background: var(--ku-secondary);
+		color: white;
 	}
 }

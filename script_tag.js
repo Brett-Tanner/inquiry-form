@@ -69,19 +69,18 @@ function createSummary(inquiry) {
       inquiryForm.appendChild(createSummaryField(pair));
     });
   inquiryForm.appendChild(createButtonContainer(inquiry));
-  addSummaryStyles();
   window.location.replace("#pagetop", "");
 }
 
 function createSummaryHeadings() {
   const heading = document.createElement("h2");
   heading.innerText = "お問い合わせ内容の確認";
-  heading.style.width = "100%";
+  heading.classList.add("summary-heading");
 
   const message = document.createElement("p");
   message.classList.add("kids-sub");
   message.innerText = "お問い合わせ内容をご確認下さい。";
-  message.style.width = "100%";
+  message.classList.add("summary-heading");
 
   return [heading, message];
 }
@@ -93,10 +92,14 @@ function createSummaryField(pair) {
   label.innerText = LABEL_TRANSLATIONS[pair[0]];
 
   const value = document.createElement("p");
-  value.innerText = SCHOOL_NAME_HASH[pair[1]] || pair[1];
+  value.innerText = SCHOOL_NAME_HASH[pair[1]] || pair[1] || "なし";
 
   fieldContainer.append(label, value);
-  fieldContainer.style.width = "20%";
+  fieldContainer.classList.add("form-group");
+  if (pair[0] == "requests") {
+	  fieldContainer.style.flexGrow = "1"
+	  fieldContainer.style.marginLeft = "3%"
+  }
   return fieldContainer;
 }
 
@@ -105,6 +108,7 @@ function createButtonContainer(inquiry) {
   container.style.display = "flex";
   container.style.flexDirection = "column";
   container.style.alignItems = "center";
+  container.style.gap = "0.5rem"
   container.style.width = "100%";
   container.appendChild(createBackButton(inquiry));
   container.appendChild(createSubmitButton(inquiry));
@@ -116,7 +120,6 @@ function createBackButton(inquiry) {
   button.id = "btnBack";
   button.type = "submit";
   button.innerText = "戻る";
-  button.classList.add("btn", "btn-info", "btn-md");
   button.addEventListener("click", function showForm(e) {
     e.preventDefault();
     inquiryForm.innerHTML = originalForm;
@@ -147,6 +150,7 @@ function createSubmitButton(inquiry) {
   button.type = "submit";
   button.innerText = "送信する";
   button.classList.add("btn", "btn-primary", "btn-md");
+  button.style.textAlign = "center";
   button.addEventListener("click", async (e) => {
     e.preventDefault();
     response = await sendInquiry(inquiry);
@@ -164,15 +168,6 @@ function createErrorMessage() {
   const message = document.createElement("h1");
   message.innerText = "お問い合わせは送信できませんでした。";
   return message;
-}
-
-function addSummaryStyles() {
-  inquiryForm.style.display = "flex";
-  inquiryForm.style.flexDirection = "row";
-  inquiryForm.style.flexWrap = "wrap";
-  inquiryForm.style.justifyContent = "center";
-  inquiryForm.style.alignItems = "center";
-  inquiryForm.style.gap = "0.5rem";
 }
 
 async function sendInquiry(inquiry) {
