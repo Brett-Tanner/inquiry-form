@@ -91,10 +91,6 @@
 	box-shadow: var(--shadow-input-orange);
 }
 
-#requests {
-	width: 90%;
-}
-
 p.notes {
 	width: 90%;
 	font-weight: 600;
