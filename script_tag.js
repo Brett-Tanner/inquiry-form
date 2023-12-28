@@ -43,19 +43,38 @@ async function createSchoolsDropdown() {
 
 createSchoolsDropdown();
 
-const privacyCheck = document.getElementById("privacy");
+function addModalListeners() {
+	const privacyCheck = document.getElementById("privacy");
 
-privacyCheck.addEventListener("change", function(e) {
-	const submitButton = document.getElementById("btnContactUs");
+	privacyCheck.addEventListener("change", function(e) {
+		const submitButton = document.getElementById("btnContactUs");
 
-	if (e.target.checked) {
-		submitButton.disabled = false;
-		submitButton.innerText = "個人情報保護方針に同意する";
-	} else {
-		submitButton.disabled = true;
-		submitButton.innerText = "個人情報保護方針に同意の上、次へお進みください";
-	}
-});
+		if (e.target.checked) {
+			submitButton.disabled = false;
+			submitButton.innerText = "個人情報保護方針に同意する";
+		} else {
+			submitButton.disabled = true;
+			submitButton.innerText = "個人情報保護方針に同意の上、次へお進みください";
+		}
+	});
+
+	const privacyModal = document.getElementById("modalPrivacyPolicy");
+
+	const closeModalButtons = document.querySelectorAll(".close-modal");
+	closeModalButtons.forEach((button) => {
+		button.addEventListener("click", () => {
+			privacyModal.close();
+		});
+	});
+
+	const privacyModalButton = document.getElementById("privacyModalButton");
+
+	privacyModalButton.addEventListener("click", () => {
+		privacyModal.showModal();
+	});
+}
+
+addModalListeners();
 
 const originalForm = inquiryForm.innerHTML;
 
@@ -63,7 +82,7 @@ const LABEL_TRANSLATIONS = {
 	school_id: "お問い合わせ先",
 	parent_name: " 保護者のお名前",
 	phone: "電話番号",
-	email: "Email",
+	email: "Eメール",
 	child_name: "お子様のお名前",
 	child_birthday: "お子様の生年月日",
 	kindy: "保育園・幼稚園名と在園状況 ",
@@ -91,7 +110,7 @@ function createSummary(inquiry, selectedSchool) {
 	inquiryForm.innerHTML = "";
 	inquiryForm.append(...createSummaryHeadings());
 	Object.entries(inquiry)
-		.filter((pair) => pair[0] !== "category")
+		.filter((pair) => pair[0] !== "category" && pair[0] !== "privacy")
 		.forEach((pair) => {
 			if (pair[0] === "school_id") {
 				pair[1] = selectedSchool;
@@ -143,7 +162,7 @@ function createButtonContainer(inquiry) {
 
 function createBackButton(inquiry) {
 	const button = document.createElement("button");
-	button.class = "btn-secondary";
+	button.classList.add("btn-secondary");
 	button.type = "submit";
 	button.innerText = "戻る";
 	button.addEventListener("click", async function showForm(e) {
@@ -162,6 +181,7 @@ function createBackButton(inquiry) {
 				input.value = pair[1];
 			}
 		});
+		addModalListeners();
 		inquiryForm.addEventListener("submit", function showSummary(e) {
 			e.preventDefault();
 			inquiryForm.removeEventListener("submit", showSummary);
