@@ -55,6 +55,7 @@ button {
 
 .form-group.privacy {
   flex-flow: row nowrap;
+  align-items: center;
 }
 
 #school-form-group {
@@ -121,8 +122,8 @@ p.notes {
 }
 
 #btnContactUs {
-  padding: 0.25rem;
-  border-radius: 0.25rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
   background: var(--ku-orange);
   font-weight: 600;
   color: white;
@@ -132,6 +133,11 @@ p.notes {
 
   &:disabled {
     opacity: 50%;
+    cursor: not-allowed;
+
+    &:hover {
+      opacity: 50%;
+    }
   }
 
   &:hover {
