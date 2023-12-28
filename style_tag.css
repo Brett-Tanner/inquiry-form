@@ -161,7 +161,23 @@ p.notes {
 }
 
 #modalPrivacyPolicy {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 2rem;
+  padding: 2rem;
   background: var(--main-background);
+  text-align: start;
+
+  :backdrop {
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  ol {
+    list-style: decimal;
+  }
 
   .modal-header {
     display: flex;
