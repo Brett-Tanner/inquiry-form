@@ -99,8 +99,6 @@
         ></textarea>
       </div>
 
-      <div class="form-group"></div>
-
       <p class="text-center notes">
         「<a
           href="https://www.p-up.world/privacypolicy/"
@@ -110,13 +108,22 @@
         >」をご確認頂き、ご同意の上で送信を行ってください。
       </p>
 
+      <button class="btn-secondary" type="button">
+        個人情報保護方針を見る
+      </button>
+      <div class="form-group privacy">
+        <input type="checkbox" name="privacy" id="privacy" required />
+        <label for="privacy"> 個人情報保護方針に同意する </label>
+      </div>
+
       <button
         type="submit"
         class="btn btn-primary btn-md"
         id="btnContactUs"
         style="text-align: center"
+        disabled
       >
-        内容の確認へ
+        個人情報保護方針に同意の上、次へお進みください
       </button>
     </form>
   </body>
