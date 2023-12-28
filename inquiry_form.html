@@ -110,11 +110,6 @@
         >」をご確認頂き、ご同意の上で送信を行ってください。
       </p>
 
-      <div class="form-group privacy">
-        <input type="checkbox" name="privacy" id="privacy" required />
-        <label for="privacy"> 個人情報保護方針に同意する </label>
-      </div>
-
       <dialog id="modalPrivacyPolicy">
         <div class="modal">
           <div class="modal-header">
@@ -290,15 +285,22 @@
         </div>
       </dialog>
 
-      <button
-        type="submit"
-        class="btn btn-primary btn-md"
-        id="btnContactUs"
-        style="text-align: center"
-        disabled
-      >
-        個人情報保護方針に同意の上、次へお進みください
-      </button>
+      <div class="form-group privacy">
+        <div class="form-group privacy">
+          <input type="checkbox" name="privacy" id="privacy" required />
+          <label for="privacy"> 個人情報保護方針に同意する </label>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary btn-md"
+          id="btnContactUs"
+          style="text-align: center"
+          disabled
+        >
+          個人情報保護方針に同意の上、次へお進みください
+        </button>
+      </div>
     </form>
   </body>
 </html>
